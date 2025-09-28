@@ -1,0 +1,77 @@
+<body>
+  <header>
+    <div class="navbarLeft">
+      <img src="../../assets/icon/rabbiticon.svg" alt="Icon" width="104">
+      <div class="buttonsNavbar">
+        <div routerLink="/floormanager" class="buttonCurrent">
+          <app-svgicons [selectedSvg]="'current'" [fillColor]="'#FAA419'"></app-svgicons>
+          <p>Current</p>
+        </div>
+        <div routerLink="/floormanager/history" class="buttonHistory active">
+          <app-svgicons [selectedSvg]="'history'" [fillColor]="'#fff'"></app-svgicons>
+          <p>History</p>
+        </div>
+        <div routerLink="/floormanager/couriers" class="buttonCouriers">
+          <app-svgicons [selectedSvg]="'delivery'" [fillColor]="'#FAA419'"></app-svgicons>
+          <p>Couriers</p>
+        </div>
+      </div>
+    </div>
+    <input type="search" class="searchbar" placeholder="Search..."
+      (input)="handleInputSearch($any($event.target).value)">
+    <div class="buttonsFilter">
+      <div class="totalOrders">
+        <app-svgicons [selectedSvg]="'total'" [fillColor]="'#fff'"></app-svgicons>
+        <p>Total orders {{ amountTotalOrders }}</p>
+      </div>
+      <div class="filterRestaurant" (click)="toggleFilter('Restaurant')">
+        <app-svgicons [selectedSvg]="'restaurant'" [fillColor]="'#fff'"></app-svgicons>
+        <p>Restaurant</p>
+        <p>{{ amountRestaurantOrders }}</p>
+        <app-svgicons [selectedSvg]="isFilterRestaurantActive ? 'filter' : 'filteroff'" [fillColor]="'#fff'">
+        </app-svgicons>
+      </div>
+      <div class="filterPickup" (click)="toggleFilter('Pick up')">
+        <app-svgicons [selectedSvg]="'pickup'" [fillColor]="'#fff'"></app-svgicons>
+        <p>Pick up</p>
+        <p>{{ amountPickupOrders }}</p>
+        <app-svgicons [selectedSvg]="isFilterPickupActive ? 'filter' : 'filteroff'" [fillColor]="'#fff'"></app-svgicons>
+      </div>
+      <div class="filterDelivery" (click)="toggleFilter('Delivery')">
+        <app-svgicons [selectedSvg]="'delivery'" [fillColor]="'#fff'"></app-svgicons>
+        <p>Delivery</p>
+        <p>{{ amountDeliveryOrders }}</p>
+        <app-svgicons [selectedSvg]="isFilterDeliveryActive ? 'filter' : 'filteroff'" [fillColor]="'#fff'">
+        </app-svgicons>
+      </div>
+    </div>
+    <div class="weathertime">
+      <div class="weather">
+        <app-svgicons [selectedSvg]="'weather'" [fillColor]="'#54565A'"></app-svgicons>
+        <p>12°C</p>
+      </div>
+      <div class="datetime">{{ currentDateTime | date:"d-M-yyyy HH:mm:ss" }}</div>
+    </div>
+  </header>
+
+  <div class="ordersAndPagination">
+    <div>
+      <app-ordershistory [orders]="paginatedOrders"></app-ordershistory>
+    </div>
+
+    <div>
+      <div class="pagination">
+        <div class="previousButton" (click)="previousButton()">
+          <app-svgicons [selectedSvg]="'arrowleft'" [fillColor]="'#54565A'" svgHeight="26px" svgWidth="26px"></app-svgicons>
+        </div>
+        <div *ngFor="let page of allPages" (click)="goToPages(page)" class="pageNumber"  [class.active]="page === currentPage">
+          {{page}}
+        </div>
+        <div class="nextButton" (click)="nextButton()">
+          <app-svgicons [selectedSvg]="'arrowright'" [fillColor]="'#54565A'" svgHeight="26px" svgWidth="26px">
+          </app-svgicons>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

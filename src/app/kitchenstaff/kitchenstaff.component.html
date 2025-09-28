@@ -1,0 +1,64 @@
+<body>
+  <header>
+    <img src="../../assets/icon/rabbiticon.svg" alt="Icon" width="104">
+    <div class="weathertime">
+      <div class="weather">
+        <app-svgicons [selectedSvg]="'weather'" [fillColor]="'#54565A'" [svgHeight]="'20px'" [svgWidth]="'20px'">
+        </app-svgicons>
+        <p>12°C</p>
+      </div>
+      <div class="datetime">{{ currentDateTime | date:"d-M-yyyy HH:mm:ss" }}</div>
+    </div>
+  </header>
+
+  <div class="orders-container">
+    <div class="order" *ngFor="let order of orders.slice(0, 4); let i = index">
+      <div class="orderheader">
+        <div class="ordertype">
+          <app-svgicons [selectedSvg]="order.icon" [fillColor]="'#1C1B20'"></app-svgicons>
+          <p>{{ order.type }}</p>
+        </div>
+        <p>#{{ order.id }}</p>
+      </div>
+      <hr>
+      <div class="orderbody">
+        <div class="comment" *ngIf="order.comment">
+          <app-svgicons [selectedSvg]="'comment'" [fillColor]="'#fff'" [svgWidth]="'18px'" [svgHeight]="'18px'">
+          </app-svgicons>
+          <p>{{ order.comment }}</p>
+        </div>
+        <div class="dishes" *ngFor="let dish of order.dishes">
+          <input type="checkbox" class="checkbox" [checked]="dish.prepared" (change)="togglePreparedStatus(dish)" />
+          <div class="amountdishes" [ngClass]="{'strikethrough': dish.prepared}" (click)="togglePreparedStatus(dish)">
+            <p>{{ dish.quantity }}x </p>
+            <div class="dishnameoption">
+              <p>{{ dish.name }}</p>
+              <span *ngIf="dish.option">- {{ dish.option }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="buttonMarkAsPrepared" (click)="markOrderAsPrepared(i)">
+        <app-svgicons [selectedSvg]="'check'" [fillColor]="'#fff'" [svgWidth]="'22px'" [svgHeight]="'22px'">
+        </app-svgicons>
+        <p>Mark as prepared</p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <p class="title">Coming soon...</p>
+      <div class="comingorderscontainer">
+        <div class="comingorders" *ngFor="let order of orders.slice(4,6)">
+          <div class="comingamountdishes" *ngFor="let dish of order.dishes">
+            <p>{{ dish.quantity }}x </p>
+            <div class="dishnameoption">
+              <p>{{ dish.name }}</p>
+              <span *ngIf="dish.option">- {{ dish.option }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

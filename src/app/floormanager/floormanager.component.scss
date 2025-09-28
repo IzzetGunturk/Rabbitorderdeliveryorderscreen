@@ -1,0 +1,164 @@
+$primary-500: #FAA419;
+$secondary-500: #54565A;
+$secondary-300: #87898C;
+$success-border: #4CAF50;
+$info-border: #2196F3;
+$white: #fff;
+$dark-500: #1C1B20;
+$order-ready: #4caf4f36;
+$greynavbar: #EBEBEB;
+$restaurant: #16A9D7;
+$pickup: #EBC500;
+$delivery: #8A2BE2;
+$warning-border: #FF5722;
+
+body {
+  margin: 0;
+  padding: 10px 32px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbarLeft {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .buttonsNavbar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: $greynavbar;
+
+    .buttonCurrent, .buttonHistory, .buttonCouriers {
+      background-color: $greynavbar;
+      color: $primary-500;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      padding: 8px 10px;
+      font-weight: 500;
+      border-radius: 10px;
+      align-items: center;
+      cursor: pointer;
+
+      &.active {
+        background-color: $primary-500;
+        color: $white;
+      }
+    }
+  }
+
+  .searchbar {
+    background-color: $greynavbar;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    width: 325px;
+    font-size: 16px;
+
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+
+  .buttonsFilter {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    color: $white;
+
+    .totalOrders, .filterRestaurant, .filterPickup, .filterDelivery {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      align-items: center;
+      padding: 8px 10px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 30px;
+      cursor: pointer;
+
+      &.totalOrders {
+        cursor:auto;
+      }
+    }
+
+    .totalOrders {
+      background-color: $success-border;
+    }
+
+    .filterRestaurant {
+      background-color: $restaurant;
+    }
+
+    .filterPickup {
+      background-color: $pickup;
+    }
+
+    .filterDelivery {
+      background-color: $delivery;
+    }
+  }
+  
+  .weathertime {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $secondary-500;
+
+    .weather {
+      display: flex;
+      flex-direction: row;
+      gap: 3px;
+    }
+
+    .datetime {
+      width: 150px;
+    }
+  }
+}
+
+.orderscheme {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 307px;
+
+  .titletypeorder {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    font-size: 25px;
+    width: 100%;
+  }
+
+  .titletypeorder hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 2px dotted $primary-500;
+    margin: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}

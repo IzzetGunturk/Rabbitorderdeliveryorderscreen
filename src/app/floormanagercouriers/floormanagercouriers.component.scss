@@ -1,0 +1,191 @@
+$primary-500: #FAA419;
+$secondary-500: #54565A;
+$secondary-300: #87898C;
+$success-border: #4CAF50;
+$info-border: #2196F3;
+$white: #fff;
+$dark-500: #1C1B20;
+$order-ready: #4caf4f36;
+$greynavbar: #EBEBEB;
+$restaurant: #16A9D7;
+$pickup: #EBC500;
+$delivery: #8A2BE2;
+$warning-border: #FF5722;
+
+body {
+  margin: 0;
+  padding: 10px 32px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbarLeft {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .buttonsNavbar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: $greynavbar;
+
+    .buttonCurrent,
+    .buttonHistory,
+    .buttonCouriers {
+      background-color: $greynavbar;
+      color: $primary-500;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      padding: 8px 10px;
+      font-weight: 500;
+      border-radius: 10px;
+      align-items: center;
+      cursor: pointer;
+
+      &.active {
+        background-color: $primary-500;
+        color: $white;
+      }
+    }
+  }
+
+  .weathertime {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $secondary-500;
+
+    .weather {
+      display: flex;
+      flex-direction: row;
+      gap: 3px;
+    }
+
+    .datetime {
+      width: 150px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+
+  .deliverypeople {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+
+    .card {
+      border: 1px solid $primary-500;
+      width: 825px;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .headerleft {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+
+          .name {
+            font-size: 18px;
+          }
+
+          .picture {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+          }
+
+          .orderid {
+            font-size: 18px;
+          }
+        }
+
+        .headerright {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          justify-items: center;
+
+          .returnbar {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .icons {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+
+            .processbar {
+              width: 230px;
+              height: 7px;
+              border: 1px solid $primary-500;
+              border-radius: 5px;
+            }
+          }
+
+          .returntime {
+            padding-top: 20px;
+            padding-left: 5px;
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid $primary-500
+      }
+
+      .body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .address {
+          font-size: 18px;
+        }
+
+        .comment {
+          background-color: $info-border;
+          border-radius: 5px;
+          padding: 10px;
+          color: $white;
+          font-size: 16px;
+          font-weight: 400;
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+        }
+      }
+    }
+  }
+}
