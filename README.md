@@ -2,7 +2,7 @@
 
 I have programmed the orderscreens for Rabbit Order & Delivery with mock data.
 
-<img src="src/assets/icon/rabbiticon.svg" width="500"/>
+<img src="src/assets/icon/rabbiticon.svg" width="400"/>
 
 ## 🛠️ Technologies
 
@@ -13,6 +13,16 @@ I have programmed the orderscreens for Rabbit Order & Delivery with mock data.
 
 Containerization:
 - Docker
+
+## 📷 Images
+<img src="src/assets/mockups/Orderscreen-Floormanager.webp" width="800"/>
+<img src="src/assets/mockups/Orderscreen-Floormanager2.webp" width="800"/>
+<img src="src/assets/mockups/Orderscreen-FloormanagerHistory.webp" width="800"/>
+<img src="src/assets/mockups/Orderscreen-FloormanagerViewMore.webp" width="800"/>
+<img src="src/assets/mockups/Orderscreen-Kitchen.webp" width="800"/>
+<img src="src/assets/mockups/Orderscreen-Pickup.webp" width="800"/>
+
+----------------
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
